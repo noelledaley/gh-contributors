@@ -1,5 +1,12 @@
 .ContributorList {
   display: flex;
   flex-wrap: wrap;
-  justify-content: space-around;
+
+  ol {
+    list-style: none;
+  }
+
+  li {
+    display: inline-block;
+  }
 }

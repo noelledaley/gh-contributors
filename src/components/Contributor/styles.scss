@@ -1,12 +1,12 @@
 .Contributor {
-  height: 200px;
-  display: inline-block;
-
-  ol {
-    list-style: none;
-  }
+  margin-right: 20px;
+  margin-bottom: 20px;
+  border: 1px solid;
+  border-radius: 4px;
+  padding: 12px;
 
   &-avatar {
     height: 60px;
+    border-radius: 4px;
   }
 }

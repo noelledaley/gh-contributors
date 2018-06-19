@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
-import GitHubContributorService from '../../services/GitHubContributorService'
 import Contributor from '../Contributor'
+import './styles.css'
+
 
 // TODO:
 // Add loading state
@@ -55,7 +56,6 @@ class ContributorList extends Component {
     const contributors = this.state.contributors ? this.renderContributors() : ''
     return (
       <div className="ContributorList">
-        <h1>Contributors to facebook/create-react-app</h1>
         <ol>
           { contributors }
         </ol>
