@@ -1,5 +1,6 @@
 
 export default class GitHubContributorService {
+
   static fetchContributors() {
     return (
       [

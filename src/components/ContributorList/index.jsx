@@ -2,6 +2,10 @@ import React, { Component } from 'react'
 import GitHubContributorService from '../../services/GitHubContributorService'
 import Contributor from '../Contributor'
 
+// TODO:
+// Add loading state
+// Decide if fetch should happen in service instead of component
+
 class ContributorList extends Component {
   constructor(props) {
     super(props)
@@ -12,9 +16,14 @@ class ContributorList extends Component {
   }
 
   componentDidMount() {
-    const contributors = this.formatContributors(GitHubContributorService.fetchContributors())
-    this.setState({contributors})
-  }
+     fetch('https://api.github.com/repos/facebook/create-react-app/stats/contributors')
+        .then(response =>  response.json())
+        .then(contributors => this.formatContributors(contributors))
+        .then(formattedContributors => this.setState({contributors: formattedContributors}))
+        .catch(error => {
+          console.error(error)
+        })
+    }
 
   formatContributors = (contributors) => {
     return contributors.map(c => {
