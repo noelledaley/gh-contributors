@@ -1,0 +1,12 @@
+.Contributor {
+  height: 200px;
+  display: inline-block;
+
+  ol {
+    list-style: none;
+  }
+
+  &-avatar {
+    height: 60px;
+  }
+}

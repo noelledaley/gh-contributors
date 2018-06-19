@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import './App.css'
+import './styles.css'
 import ContributorList from '../ContributorList'
 
 class App extends Component {
@@ -9,6 +9,7 @@ class App extends Component {
         <header className="App-header">
           <h1 className="App-title">Github Contributors</h1>
         </header>
+        <h1>Contributors to facebook/create-react-app</h1>
         <ContributorList />
       </div>
     )
