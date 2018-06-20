@@ -4,8 +4,8 @@ import './styles.css'
 
 
 // TODO:
-// Add loading state
 // Decide if fetch should happen in service instead of component
+// move formatting unto separate util
 
 const GITHUB_CONTRIBUTORS_API_URL = 'https://api.github.com/repos/facebook/create-react-app/stats/contributors'
 
@@ -14,7 +14,8 @@ class ContributorList extends Component {
     super(props)
 
     this.state = {
-      contributors: null
+      contributors: null,
+      isLoading: true
     }
   }
 
@@ -22,7 +23,12 @@ class ContributorList extends Component {
      fetch(GITHUB_CONTRIBUTORS_API_URL)
         .then(response =>  response.json())
         .then(contributors => this.formatContributors(contributors))
-        .then(formattedContributors => this.setState({contributors: formattedContributors}))
+        .then(formattedContributors => this.setState(
+          {
+            contributors: formattedContributors,
+            isLoading: false
+          }
+        ))
         .catch(error => {
           console.error(error)
         })
@@ -65,7 +71,7 @@ class ContributorList extends Component {
   }
 
   render () {
-    const contributors = this.state.contributors ? this.renderContributors() : ''
+    const contributors = !this.state.isLoading ? this.renderContributors() : 'Loading contributors...'
     return (
       <div className="ContributorList">
         <ol>
