@@ -1,11 +1,14 @@
 import React, { Component } from 'react'
 import Contributor from '../Contributor'
+import Dropdown from '../Dropdown'
 import './styles.css'
 
 
 // TODO:
+// finish sorting
 // Decide if fetch should happen in service instead of component
 // move formatting unto separate util
+// add loading spinner component
 
 const GITHUB_CONTRIBUTORS_API_URL = 'https://api.github.com/repos/facebook/create-react-app/stats/contributors'
 
@@ -15,6 +18,7 @@ class ContributorList extends Component {
 
     this.state = {
       contributors: null,
+      sortByAttribute: "commits",
       isLoading: true
     }
   }
@@ -35,7 +39,8 @@ class ContributorList extends Component {
     }
 
   formatContributors = (contributors) => {
-    return contributors.map(c => {
+    const formattedContributors = contributors.map(c => {
+      // tally additions and deletions
       let additions = 0
       let deletions = 0
 
@@ -56,6 +61,12 @@ class ContributorList extends Component {
         }
       )
     })
+
+    // sort
+    const { sortByAttribute } = this.state
+    return formattedContributors.sort((a, b) => {
+      return b[sortByAttribute] - a[sortByAttribute]
+    })
   }
 
   renderContributors = () => {
@@ -70,10 +81,19 @@ class ContributorList extends Component {
     })
   }
 
+  changeSortByAttribute = (e) => {
+    if (e.target.value === this.state.sortByAttribute) {
+      return
+    }
+    const newSort = e.target.value
+    this.setState({sortByAttribute: newSort})
+  }
+
   render () {
     const contributors = !this.state.isLoading ? this.renderContributors() : 'Loading contributors...'
     return (
       <div className="ContributorList">
+        <Dropdown onChange={ this.changeSortByAttribute }/>
         <ol>
           { contributors }
         </ol>
