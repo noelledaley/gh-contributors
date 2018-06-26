@@ -39,6 +39,7 @@ class ContributorList extends Component {
     }
 
   formatContributors = (contributors) => {
+    const { sortByAttribute } = this.state
     const formattedContributors = contributors.map(c => {
       // tally additions and deletions
       let additions = 0
@@ -62,9 +63,11 @@ class ContributorList extends Component {
       )
     })
 
-    // sort
-    const { sortByAttribute } = this.state
-    return formattedContributors.sort((a, b) => {
+    return this.sortContributors(sortByAttribute, formattedContributors)
+  }
+
+  sortContributors = (sortByAttribute, contributors) => {
+    return contributors.slice().sort((a, b) => {
       return b[sortByAttribute] - a[sortByAttribute]
     })
   }
@@ -86,7 +89,8 @@ class ContributorList extends Component {
       return
     }
     const newSort = e.target.value
-    this.setState({sortByAttribute: newSort})
+    const contributors = this.sortContributors(newSort, this.state.contributors)
+    this.setState({sortByAttribute: newSort, contributors})
   }
 
   render () {
