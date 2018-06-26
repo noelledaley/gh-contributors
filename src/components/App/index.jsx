@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import './styles.css'
+import './App.css'
 import ContributorList from '../ContributorList'
 
 class App extends Component {
