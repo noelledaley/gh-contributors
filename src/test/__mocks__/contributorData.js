@@ -1,8 +1,4 @@
-import formatContributors from './formatContributors'
-
-// TODO: finish tests!
-
-const mock = [
+export const mockRequest = [
   {
     "author": {
       "login": "octocat",
@@ -22,7 +18,7 @@ const mock = [
   {
     "author": {
       "login": "doggocat",
-      "id": 1,
+      "id": 2,
       "avatar_url": "https://github.com/images/error/doggocat_happy.gif",
       "html_url": "https://github.com/doggocat",
     },
@@ -43,17 +39,23 @@ const mock = [
   },
 ]
 
-const expected = {
-
-}
-
-it('returns an array of contributors', () => {
-  expect(formatContributors(mock).length).toEqual(2)
-})
-
-it('returns an array of contributors with the correct fields', () => {
-
-})
-
-it('tallies the correct number of additions, deletions, and commits', () => {
-})
+export const expectedResponse = [
+  {
+    id: 1,
+    avatar_url: "https://github.com/images/error/octocat_happy.gif",
+    html_url: "https://github.com/octocat",
+    login: "octocat",
+    commits: 10,
+    additions: 6898,
+    deletions: 77
+  },
+  {
+    id: 2,
+    avatar_url: "https://github.com/images/error/doggocat_happy.gif",
+    html_url: "https://github.com/doggocat",
+    login: "doggocat",
+    commits: 25,
+    additions: 10,
+    deletions: 80
+  }
+]
