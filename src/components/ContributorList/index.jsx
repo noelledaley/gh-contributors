@@ -47,10 +47,11 @@ class ContributorList extends Component {
   renderContributors = () => {
     const { contributors } = this.state
 
-    return contributors.map(c => {
+    return contributors.map((c, i) => {
+      const rank = i + 1
       return (
         <li key={c.id}>
-          <Contributor {...c} />
+          <Contributor rank={ rank } {...c} />
         </li>
       )
     })
@@ -68,11 +69,13 @@ class ContributorList extends Component {
   render () {
     const contributors = !this.state.isLoading ? this.renderContributors() : 'Loading contributors...'
     return (
-      <div className="ContributorList">
+      <div className="ContributorListWrapper">
         <Dropdown onChange={ this.changeSortByAttribute }/>
-        <ol>
-          { contributors }
-        </ol>
+        <div className="ContributorList">
+          <ol>
+            { contributors }
+          </ol>
+        </div>
       </div>
     )
   }

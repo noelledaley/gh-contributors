@@ -3,10 +3,34 @@
   margin-bottom: 20px;
   border: 1px solid;
   border-radius: 4px;
-  padding: 12px;
+  display: flex;
+
+  &-header {
+    background-color: #7A7A86;
+    padding: 12px;
+  }
 
   &-avatar {
-    height: 60px;
-    border-radius: 4px;
+    height: 80px;
+    border-radius: 50%;
+  }
+
+  &-rank {
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    background-color: #ccc;
+  }
+
+  &-details {
+    padding: 12px;
+
+    &-additions {
+      color: #28a745;
+    }
+
+    &-deletions {
+      color: #cb2431;
+    }
   }
 }

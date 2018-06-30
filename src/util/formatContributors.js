@@ -17,9 +17,9 @@ function formatContributors (contributors) {
         avatar_url: c.author.avatar_url,
         html_url: c.author.html_url,
         login: c.author.login,
-        commits,
-        additions,
-        deletions
+        commits: commits.toLocaleString(),
+        additions: additions.toLocaleString(),
+        deletions: deletions.toLocaleString()
       }
     )
   })
