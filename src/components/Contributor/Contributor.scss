@@ -8,6 +8,10 @@
   &-header {
     background-color: #7A7A86;
     padding: 12px;
+
+    &-img {
+      position: relative;
+    }
   }
 
   &-avatar {
@@ -20,6 +24,13 @@
     height: 30px;
     border-radius: 50%;
     background-color: #ccc;
+    position: absolute;
+    bottom: 0px;
+    right: 0px;
+
+    p {
+      font-size: 0.75em;
+    }
   }
 
   &-details {

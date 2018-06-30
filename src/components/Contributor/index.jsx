@@ -9,9 +9,11 @@ const Contributor = (contributorData) => {
   return (
     <div className="Contributor">
       <div className="Contributor-header">
-        <img className="Contributor-avatar" src={ avatar_url } alt="github avatar"/>
-        <div class="Contributor-rank">
-          <p># { rank }</p>
+        <div className="Contributor-header-img">
+          <img className="Contributor-avatar" src={ avatar_url } alt="github avatar"/>
+          <div class="Contributor-rank">
+            <p># { rank }</p>
+          </div>
         </div>
         <a href={ html_url } target="_blank">{ login }</a>
       </div>
