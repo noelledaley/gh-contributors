@@ -1,5 +1,6 @@
 import React from 'react'
 import './Contributor.css'
+import PropTypes from 'prop-types'
 
 
 const Contributor = (contributorData) => {
@@ -23,6 +24,17 @@ const Contributor = (contributorData) => {
       </div>
     </div>
   )
+}
+
+Contributor.propTypes = {
+  id: PropTypes.number,
+  avatar_url: PropTypes.string,
+  html_url: PropTypes.string,
+  login: PropTypes.string,
+  rank: PropTypes.number,
+  commits: PropTypes.string,
+  additions: PropTypes.string,
+  deletions: PropTypes.string
 }
 
 export default Contributor
