@@ -15,7 +15,9 @@ const Contributor = (contributorData) => {
             <p># { rank }</p>
           </div>
         </div>
-        <a href={ html_url } target="_blank">{ login }</a>
+        <div className="Contributor-login">
+          <a href={ html_url } target="_blank">{ login }</a>
+        </div>
       </div>
       <div className="Contributor-details">
         <p>{ commits } commits</p>
