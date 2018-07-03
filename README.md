@@ -1,6 +1,6 @@
 # Github Contributors
 
-This app is a replica of the [Github Contributors' page](https://github.com/facebook/create-react-app/graphs/contributors). Using the Github API it fetches displays all contributors to Facebook's [Create React App](https://github.com/facebook/create-react-app/).
+This app is a replica of the [Github Contributors' page](https://github.com/facebook/create-react-app/graphs/contributors). Using the Github API it fetches and displays all contributors to Facebook's [Create React App](https://github.com/facebook/create-react-app/).
 
 ## Installation
 
